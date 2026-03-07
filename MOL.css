@@ -1,0 +1,60 @@
+body{
+    background-color: aliceblue;
+}
+.title{
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
+#ghoul{
+    display: flex;
+}
+.argument{
+    width: 50%;
+}
+#openMenu{
+    position: absolute;
+    margin-top: 2%;
+}
+input{
+    width: 84%;
+    margin-top: 240%;
+    margin-left: -70%;
+    position: absolute;
+}
+.token{
+    margin-left: 35px;
+    margin-top: 30%;
+}
+.toke{
+    margin-left: 35px;
+}
+#closeMenu{
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 85%;
+    border: hidden;
+    background-color: #f9f9f9;
+}
+#menu{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    height: 100%;
+    width: 13%;
+    z-index: 1;
+}
+#menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#menu li{
+    padding: 5px 0;
+}
+.pesquisa{
+    border-radius: none;
+    border-style: none;
+}

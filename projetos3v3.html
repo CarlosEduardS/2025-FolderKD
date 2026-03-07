@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos 3v3</title>
+    <link rel="shortcut icon" href="imagens/logo-mini.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 60%, #7f3cff 100%);
+            color: #f5f5f5;
+        }
+        h1 {
+            margin: 32px;
+            color: #a084ff;
+        }
+        .search-bar {
+            margin: 32px;
+            display: flex;
+            gap: 8px;
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            background: #222;
+            color: #fff;
+            outline: none;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(90deg, #7f3cff 60%, #1a1a1a 100%);
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .tab {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            margin: 32px;
+            justify-items: center;
+        }
+        .tab img {
+            height: 160px;
+            width: 160px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px #0004;
+            object-fit: cover;
+            background: #222;
+            border: 4px solid #ff2d2d;
+            transition: transform 0.2s;
+        }
+        .tab img:hover {
+            transform: scale(1.05);
+        }
+        .tab .caption {
+            color: #fff;
+            font-size: 1.05rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagens/logo-mini.png" alt="Customizando Sonhos" class="logo" style="width:48px;height:48px;vertical-align:middle;">
+        <h1 style="display:inline-block;vertical-align:middle;margin-left:16px;">Projetos</h1>
+        <div class="search-bar" style="display:inline-flex;float:right;align-items:center;">
+            <input type="text" id="searchInput" placeholder="Pesquisar projetos...">
+            <button onclick="filtrarProjetos()">Pesquisar</button>
+            <button type="button" id="mbt" class="menu-btn" style="margin-left:16px;">Menu</button>
+        </div>
+    </header>
+    <hr>
+    <div id="projetos3v3" class="tab">
+        <div><img src="imagens/Banana com rodas.jfif" alt="Banana com rodas"><div class="caption">Banana com rodas</div></div>
+        <div><img src="imagens/Carro tunado.jfif" alt="Carro tunado"><div class="caption">Carro tunado</div></div>
+        <div><img src="imagens/Cobrashi.jfif" alt="Cobrashi"><div class="caption">Cobrashi</div></div>
+        <div><img src="imagens/Cogumelo estranho.jfif" alt="Cogumelo estranho"><div class="caption">Cogumelo estranho</div></div>
+        <div><img src="imagens/Coruja caminhoneira.jfif" alt="Coruja caminhoneira"><div class="caption">Coruja caminhoneira</div></div>
+        <div><img src="imagens/Dinossauro que dança balé.jfif" alt="Dinossauro que dança balé"><div class="caption">Dinossauro que dança balé</div></div>
+        <div><img src="imagens/Gato cósmico.jfif" alt="Gato cósmico"><div class="caption">Gato cósmico</div></div>
+        <div><img src="imagens/Lobo de fogo.jfif" alt="Lobo de fogo"><div class="caption">Lobo de fogo</div></div>
+        <div><img src="imagens/Macaco aranha.jfif" alt="Macaco aranha"><div class="caption">Macaco aranha</div></div>
+        <div><img src="imagens/Peixe encanador.jfif" alt="Peixe encanador"><div class="caption">Peixe encanador</div></div>
+        <div><img src="imagens/Baratão.jfif" alt="Baratão"><div class="caption">Baratão</div></div>
+        <div><img src="imagens/Blindado.jfif" alt="Blindado"><div class="caption">Blindado</div></div>
+    </div>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar" style="position:fixed;top:0;right:0;width:320px;height:100vh;background:linear-gradient(135deg,#1a1a1a 60%,#7f3cff 100%);box-shadow:-2px 0 16px #0005;color:#fff;padding:32px 24px;z-index:1000;transform:translateX(100%);transition:transform 0.3s ease;display:flex;flex-direction:column;">
+        <button class="sidebar-close" id="closeSidebar" style="align-self:flex-end;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;margin-bottom:24px;">&times;</button>
+        <h2 style="color:#a084ff;margin-top:0;">Menu</h2>
+        <ul style="list-style:none;padding:0;">
+            <li><a href="site.html" style="color:#fff;text-decoration:none;font-size:1.1rem;">Início</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:none;font-size:1.1rem;">Projetos</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:none;font-size:1.1rem;">Sobre</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:none;font-size:1.1rem;">Contato</a></li>
+        </ul>
+    </div>
+    <script>
+        // Menu lateral
+        const botao = document.getElementById("mbt");
+        const sidebar = document.getElementById("sidebar");
+        const closeSidebar = document.getElementById("closeSidebar");
+        botao.addEventListener("click", function () {
+            sidebar.style.transform = "translateX(0)";
+        });
+        closeSidebar.addEventListener("click", function () {
+            sidebar.style.transform = "translateX(100%)";
+        });
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                filtrarProjetos();
+            }
+        });
+
+        function filtrarProjetos() {
+            const input = searchInput.value.toLowerCase();
+            const projetos = document.querySelectorAll('#projetos3v3 > div');
+            let encontrou = false;
+            projetos.forEach(div => {
+                const caption = div.querySelector('.caption').textContent.toLowerCase();
+                const img = div.querySelector('img');
+                div.style.display = 'none';
+                img.style.height = '160px';
+                img.style.width = '160px';
+                img.style.border = '4px solid #ff2d2d';
+                div.querySelector('.caption').style.fontSize = '1.05rem';
+                if (caption.includes(input) && input.length > 0) {
+                    div.style.display = 'flex';
+                    div.style.flexDirection = 'column';
+                    div.style.alignItems = 'center';
+                    img.style.height = '260px';
+                    img.style.width = '260px';
+                    img.style.border = '6px solid #ff2d2d';
+                    div.querySelector('.caption').style.fontSize = '1.3rem';
+                    encontrou = true;
+                }
+            });
+            if (!encontrou && input.length > 0) {
+                // Nenhum projeto encontrado
+                document.getElementById('projetos3v3').innerHTML = '<div style="color:#fff;font-size:1.2rem;margin:32px auto;">Nenhum projeto encontrado.</div>';
+            } else if (input.length === 0) {
+                projetos.forEach(div => {
+                    div.style.display = 'block';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
